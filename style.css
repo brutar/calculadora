@@ -1,0 +1,48 @@
+.areaEstilo{
+    background-color: rgb(36, 39, 36);
+    width: 170px;
+    height: 237px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.bt{
+    width:25px;
+    height:35px;
+    background-color: #50ab6e;
+    text-align: center;
+    border-radius: 3px;
+    position: relative;
+}
+.bt:hover{
+    background-color:#242724;
+    color: cornsilk;
+    border: solid 1px;
+    width:23px;
+    height:33px;
+}
+.bt:active{
+    background-color: #a64735;
+}
+.celula-resultado {
+    text-align: left;
+    vertical-align: baseline;
+    width: 160px;
+    height: 32px;
+    background-color: floralwhite;
+    border-radius: 5px;
+    position: absolute;
+}
+.div-resultado{
+    position: absolute;
+    width: 158px;
+    height: 30px;
+    margin-left: -1px;
+    margin-top: -1px;
+    border: none;
+    border-radius: 5px;
+    vertical-align: baseline;
+}
