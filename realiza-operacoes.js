@@ -34,24 +34,24 @@ const calcular = () =>{
     }
 }
 function soma(num1,num2){
-	return atualizarDisplay(num1 + num2);	
+	return atualizarDisplay(parseFloat(num1) + parseFloat(num2));	
 }
 function subtrai(num1,num2){
-	return atualizarDisplay(num1 - num2);
+	return atualizarDisplay(parseFloat(num1)-parseFloat(num2));
 }
 function multiplica(num1,num2){
-	return atualizarDisplay(num1*num2);
+	return atualizarDisplay(parseFloat(num1)*parseFloat(num2));
 }	
 function divide(num1,num2){
-	return atualizarDisplay(num1/num2);
+	return atualizarDisplay(parseFloat(num1)/parseFloat(num2));
 }
 
 const atualizarDisplay = (texto) =>{
     if(novoNumero){
-        display.textContent = texto.toLocaleString('pt-BR');
+        display.textContent = texto;
         novoNumero=false;
     }else{
-        display.textContent += texto.toLocaleString('pt-BR');
+        display.textContent += texto;
     }
 }
 
