@@ -1,17 +1,16 @@
 .areaEstilo{
     background-color: rgb(36, 39, 36);
-    width: 170px;
-    height: 237px;
+    width: 250px;
+    height: 300px;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 5% auto 0px auto;
     padding: 2px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .bt{
     width:25px;
-    height:35px;
+    height:45px;
     background-color: #50ab6e;
     text-align: center;
     border-radius: 3px;
@@ -28,21 +27,28 @@
     background-color: #a64735;
 }
 .celula-resultado {
+    position: relative;
     text-align: left;
     vertical-align: baseline;
-    width: 160px;
-    height: 32px;
+    width: 241px;
+    height: 48px;
     background-color: floralwhite;
     border-radius: 5px;
     position: absolute;
 }
 .div-resultado{
     position: absolute;
-    width: 158px;
+    width: 230px;
     height: 30px;
     margin-left: -1px;
     margin-top: -1px;
     border: none;
     border-radius: 5px;
     vertical-align: baseline;
+    font-size: 1.2em;
+    padding: 5% 0;
+    max-width: 45ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
