@@ -7,6 +7,7 @@ const operadores = document.querySelectorAll("[class*=op]");
 let novoNumero = true;
 let operador;
 let numeroAnterior;
+let numeroAtual;
 
 const operacaoPendente = () =>{
     if(operador != undefined){
@@ -16,22 +17,20 @@ const operacaoPendente = () =>{
 
 const calcular = () =>{
     if(operacaoPendente()){
-        let numeroAtual = parseFloat(display.textContent.replace(',','.'));
+        //numeroAtual = parseFloat(display.textContent.replace(',','.'));
         novoNumero = true;
         if(operador == "+"){
             soma(numeroAnterior,numeroAtual);
-			//atualizarDisplay(numeroAnterior + numeroAtual);
         }else if(operador == "-"){
             subtrai(numeroAnterior,numeroAtual);
-			//atualizarDisplay(numeroAnterior - numeroAtual);
         }else if(operador == "*"){
             multiplica(numeroAnterior,numeroAtual);
-			//atualizarDisplay(numeroAnterior * numeroAtual);
+            console.log(numeroAnterior + " - "+ numeroAtual);
         }else if(operador == "/"){
             divide(numeroAnterior,numeroAtual);
-			//atualizarDisplay(numeroAnterior / numeroAtual);
         }
     }
+    
 }
 function soma(num1,num2){
 	return atualizarDisplay(parseFloat(num1) + parseFloat(num2));	
@@ -57,10 +56,12 @@ const atualizarDisplay = (texto) =>{
 
 const selecionarOperador = (evento) =>{
     if(!novoNumero){
-            calcular();
-            operador = evento.target.textContent;
-            novoNumero = true;
-            numeroAnterior = parseFloat(display.textContent.replace(',','.'));
+        console.log("Aqui número novo " + novoNumero);
+        operador = evento.target.textContent;
+        console.log(operador);
+        novoNumero = true;
+        numeroAnterior = parseFloat(display.textContent.replace(',','.')); 
+        console.log(numeroAnterior);      
     }
 }
 //limpa o display por meio do click do botão CE
@@ -69,10 +70,20 @@ const limpaDisplay = () =>{
 }
 document.querySelector(".limparDisplay").addEventListener("click", limpaDisplay);
 
-//percentual
-const percentual = (numAtual) =>{
-    return numAtual/100;
-} 
+//converte valor atual em fração
+const calculaPercentual = (valor)=>{
+    return parseFloat(valor/100);
+}
+//atualiza o valor do numeroAtual com o valor convertido
+const percentual = ()=> {
+    numeroAtual = parseFloat(display.textContent.replace(',','.'));
+    numeroAtual = calculaPercentual(numeroAtual);
+    novoNumero=true;
+    
+}
+//chama a função para converter o numeroAtual em fração
+document.querySelector('.opPercentual').addEventListener('click', percentual);
+
 //limpar calculo
 const limparCalculo = () =>{
     limpaDisplay();
