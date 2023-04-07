@@ -17,31 +17,31 @@ const operacaoPendente = () =>{
 
 const calcular = () =>{
     if(operacaoPendente()){
-        //numeroAtual = parseFloat(display.textContent.replace(',','.'));
+        numeroAtual = parseFloat(display.textContent.replace(',','.'));
         novoNumero = true;
         if(operador == "+"){
-            soma(numeroAnterior,numeroAtual);
+            atualizarDisplay(soma(numeroAnterior,numeroAtual));
         }else if(operador == "-"){
-            subtrai(numeroAnterior,numeroAtual);
+            atualizarDisplay(subtrai(numeroAnterior,numeroAtual));
         }else if(operador == "*"){
             atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
             console.log(numeroAnterior + " - "+ numeroAtual);
         }else if(operador == "/"){
-            divide(numeroAnterior,numeroAtual);
+            atualizarDisplay(divide(numeroAnterior,numeroAtual));
         }
     }
 }
 function soma(num1,num2){
-	return atualizarDisplay(parseFloat(num1) + parseFloat(num2));	
+	return parseFloat(num1) + parseFloat(num2);	
 }
 function subtrai(num1,num2){
-	return atualizarDisplay(parseFloat(num1)-parseFloat(num2));
+	return parseFloat(num1)-parseFloat(num2);
 }
 function multiplica(num1,num2){
 	return parseFloat(num1)*parseFloat(num2);
 }	
 function divide(num1,num2){
-	return atualizarDisplay(parseFloat(num1)/parseFloat(num2));
+	return parseFloat(num1)/parseFloat(num2);
 }
 
 const atualizarDisplay = (texto) =>{
