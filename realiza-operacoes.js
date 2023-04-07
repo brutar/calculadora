@@ -19,20 +19,17 @@ const operacaoPendente = () =>{
 const calcular = () =>{
     if(operacaoPendente()){
         if(aux == true){
-            console.log("Numero atual passando percentual: " + numeroAtual);
             if(operador == "+"){
                 atualizarDisplay(soma(numeroAnterior,numeroAtual));
             }else if(operador == "-"){
                 atualizarDisplay(subtrai(numeroAnterior,numeroAtual));
             }else if(operador == "*"){
                 atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
-                console.log(numeroAnterior + " - "+ numeroAtual);
             }else if(operador == "/"){
                 atualizarDisplay(divide(numeroAnterior,numeroAtual));
             }
         }else{
             numeroAtual = parseFloat(display.textContent.replace(',','.'));
-            console.log("Numero atual dentro de calcular sem passar por percentual: "+ numeroAtual);
             novoNumero = true;
             if(operador == "+"){
                 atualizarDisplay(soma(numeroAnterior,numeroAtual));
@@ -40,7 +37,6 @@ const calcular = () =>{
                 atualizarDisplay(subtrai(numeroAnterior,numeroAtual));
             }else if(operador == "*"){
                 atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
-                console.log(numeroAnterior + " - "+ numeroAtual);
             }else if(operador == "/"){
                 atualizarDisplay(divide(numeroAnterior,numeroAtual));
             }
@@ -73,12 +69,9 @@ const atualizarDisplay = (texto) =>{
 
 const selecionarOperador = (evento) =>{
     if(!novoNumero){
-        console.log("Aqui número novo " + novoNumero);
         operador = evento.target.textContent;
-        console.log(operador);
         novoNumero = true;
-        numeroAnterior = parseFloat(display.textContent.replace(',','.')); 
-        console.log(numeroAnterior);      
+        numeroAnterior = parseFloat(display.textContent.replace(',','.'));       
     }
 }
 //limpa o display por meio do click do botão CE
