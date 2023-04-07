@@ -28,6 +28,7 @@ const calcular = () =>{
             }else if(operador == "/"){
                 atualizarDisplay(divide(numeroAnterior,numeroAtual));
             }
+            aux = false;
         }else{
             numeroAtual = parseFloat(display.textContent.replace(',','.'));
             novoNumero = true;
