@@ -8,6 +8,7 @@ let novoNumero = true;
 let operador;
 let numeroAnterior;
 let numeroAtual;
+let aux=false;
 
 const operacaoPendente = () =>{
     if(operador != undefined){
@@ -17,18 +18,35 @@ const operacaoPendente = () =>{
 
 const calcular = () =>{
     if(operacaoPendente()){
-        numeroAtual = parseFloat(display.textContent.replace(',','.'));
-        novoNumero = true;
-        if(operador == "+"){
-            atualizarDisplay(soma(numeroAnterior,numeroAtual));
-        }else if(operador == "-"){
-            atualizarDisplay(subtrai(numeroAnterior,numeroAtual));
-        }else if(operador == "*"){
-            atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
-            console.log(numeroAnterior + " - "+ numeroAtual);
-        }else if(operador == "/"){
-            atualizarDisplay(divide(numeroAnterior,numeroAtual));
+        if(aux == true){
+            console.log("Numero atual passando percentual: " + numeroAtual);
+            if(operador == "+"){
+                atualizarDisplay(soma(numeroAnterior,numeroAtual));
+            }else if(operador == "-"){
+                atualizarDisplay(subtrai(numeroAnterior,numeroAtual));
+            }else if(operador == "*"){
+                atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
+                console.log(numeroAnterior + " - "+ numeroAtual);
+            }else if(operador == "/"){
+                atualizarDisplay(divide(numeroAnterior,numeroAtual));
+            }
+        }else{
+            numeroAtual = parseFloat(display.textContent.replace(',','.'));
+            console.log("Numero atual dentro de calcular sem passar por percentual: "+ numeroAtual);
+            novoNumero = true;
+            if(operador == "+"){
+                atualizarDisplay(soma(numeroAnterior,numeroAtual));
+            }else if(operador == "-"){
+                atualizarDisplay(subtrai(numeroAnterior,numeroAtual));
+            }else if(operador == "*"){
+                atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
+                console.log(numeroAnterior + " - "+ numeroAtual);
+            }else if(operador == "/"){
+                atualizarDisplay(divide(numeroAnterior,numeroAtual));
+            }
         }
+        
+        
     }
 }
 function soma(num1,num2){
@@ -83,9 +101,10 @@ const percentual = ()=> {
         novoNumero=true;
     }
     if(operador == "-"){
-        numeroAtual = multiplica(numeroAnterior,numeroAtual);
+        numeroAtual = multiplica(numeroAnterior,numeroAtual);   
         novoNumero=true;
     }
+    aux = true;
 }
 //chama a função para converter o numeroAtual em fração
 document.querySelector('.opPercentual').addEventListener('click', percentual);
