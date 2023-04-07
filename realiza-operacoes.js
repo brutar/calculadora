@@ -24,13 +24,12 @@ const calcular = () =>{
         }else if(operador == "-"){
             subtrai(numeroAnterior,numeroAtual);
         }else if(operador == "*"){
-            multiplica(numeroAnterior,numeroAtual);
+            atualizarDisplay(multiplica(numeroAnterior,numeroAtual));
             console.log(numeroAnterior + " - "+ numeroAtual);
         }else if(operador == "/"){
             divide(numeroAnterior,numeroAtual);
         }
     }
-    
 }
 function soma(num1,num2){
 	return atualizarDisplay(parseFloat(num1) + parseFloat(num2));	
@@ -39,7 +38,7 @@ function subtrai(num1,num2){
 	return atualizarDisplay(parseFloat(num1)-parseFloat(num2));
 }
 function multiplica(num1,num2){
-	return atualizarDisplay(parseFloat(num1)*parseFloat(num2));
+	return parseFloat(num1)*parseFloat(num2);
 }	
 function divide(num1,num2){
 	return atualizarDisplay(parseFloat(num1)/parseFloat(num2));
@@ -71,15 +70,22 @@ const limpaDisplay = () =>{
 document.querySelector(".limparDisplay").addEventListener("click", limpaDisplay);
 
 //converte valor atual em fração
-const calculaPercentual = (valor)=>{
+const converteFracao = (valor)=>{
     return parseFloat(valor/100);
 }
 //atualiza o valor do numeroAtual com o valor convertido
 const percentual = ()=> {
     numeroAtual = parseFloat(display.textContent.replace(',','.'));
-    numeroAtual = calculaPercentual(numeroAtual);
+    numeroAtual = converteFracao(numeroAtual);
     novoNumero=true;
-    
+    if(operador == "+"){
+        numeroAtual = multiplica(numeroAnterior,numeroAtual);
+        novoNumero=true;
+    }
+    if(operador == "-"){
+        numeroAtual = multiplica(numeroAnterior,numeroAtual);
+        novoNumero=true;
+    }
 }
 //chama a função para converter o numeroAtual em fração
 document.querySelector('.opPercentual').addEventListener('click', percentual);
